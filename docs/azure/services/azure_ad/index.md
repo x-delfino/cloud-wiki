@@ -8,10 +8,22 @@ Before we get started here is some key terminology that will be useful when tryi
 |:------------|:-----------|
 | Tenant | Effectively the base unit that represents an organization in Azure. It is an instance of Azure AD that is created when an organization signs up for cloud services with Microsoft. It is used to manage user permissions and access to not only Azure services but to other Microsoft SaaS offerings as well (Microsoft365, Intune, Dynamics365). |
 | Subscriptions | Effectively a separate payment agreement between the organization in question and Microsoft within their Azure tenant. You can have as many subscriptions as you want, they would logically separate your resources based on how you want to manage their costs. This would be a common high-level point where organisation resources would be segregated at. |
-| Identity | An entity that can have permissions assigned to it and authenticate to the platform. Users can be thought of having an identity because they'd authenticate with creds, same as an app authenticating with certificates or keys, can therefore be thought of having an identity. |
-| Azure AD account | An identity created through Azure AD which is stored in AAD and accessible to all the organization's cloud service subscriptions|
 | Azure AD directory | Each tenant has a dedicated Azure AD directory. It is made up of all the identities associated to the organization (users, groups, and apps) and is used to perform identity and access management functions|
 |Azure Management group|A high-level abstraction of a group of several subscriptions. This is used to centralise management of access, policies and compliance related to several relevant subscriptions. All subscriptions in a management group inherit conditions assigned to the group.|
+## Identities
+
+An 'identity' or 'principal' is basically any entity that can authenticate to the platform and have permissions or access rights assigned to it. There are a number of identities in AAD which can broadly be broken into the following groups:
+- User principal
+- Service principal
+
+User principals, as the name suggests, represent actual users. Service principals, on the other hand, represent applications or services - more information on service principals can be found [here](./service_principals). Through these identities in AAD, access to resources and services for both users and applications can be consistently managed across all resources leveraging Azure AD for IAM. 
+
+User principals can exist in one of two states in Azure:
+- Cloud-only: These accounts exist only in Azure AD.
+- Directory Synced (Hybrid): These accounts are synchronised with an on-premise Active Directory domain.
+
+For detail on hybrid identities, check out the individual page [here](./hybrid_identities).
+
 
 ## AAD Roles and Assignment
 
@@ -50,16 +62,6 @@ Now to compliment the list above, let us do a quick table of relevant roles with
 |Contributor|The only difference between Owner and Contributor is that Contributor does not have permissions to perform any of the user access management tasks. As such, if the intent is to compromise machines or deploy new ones, you realistically would only need Contributor access|
 |Reader|Allows a user full read-only access to resources within the assigned scope to your role. Again, can be pretty granular but usually on assessments we would like to get Reader access assigned at a subscription level ideally to see all relevant resources. |
 |User Access Administrator|Lets you manage user access to Azure resources. Overall, not something you want to give to people often even at a relatively constrained scope as they would have full access to anything within that scope. |
-
-Before moving on, now that we've got a better understanding of these basic concepts, there's a few more terms we need to introduce/explain better. It's usually valuable for services or apps to have identities that can allow them to directly perm actions such as grabbing secrets material without needing hardcoded credentials. To address these issues Azure AD provides two methods:
-
-- **Service principals**
-  - An *identity* is just a thing that can be authenticated (user with creds, app with keys/certs)
-  - A *principal* is an identity acting with certain roles or claims, not really separate from identity. This can be imagined in a way similar to running "sudo" in a terminal: you're still the same user, but you changed the role under which you execute. Groups can be considered principals as they can have rights assigned to them.
-  - A *service principal* is an identity that is used by a service or application. And like other identities, it can be assigned roles.
-- **Managed identities for Azure services**
-  - Creating service principals is a tedious process and they are difficult to maintain, Managed identities will do most of the work for you. MI can be created instantly for any Azure service supporting it. It's effectively creating an account on an organization's AD tenant
-  - The Azure infrastructure will take care of authenticating the service and managing the account, to then be used as any other Azure AD account, with access to other Azure resources
 
 To get what user roles have been assigned to your account once you are logged into the Azure CLI. You can run:
 
