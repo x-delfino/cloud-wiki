@@ -8,21 +8,10 @@ Before we get started here is some key terminology that will be useful when tryi
 |:------------|:-----------|
 | Tenant | Effectively the base unit that represents an organization in Azure. It is an instance of Azure AD that is created when an organization signs up for cloud services with Microsoft. It is used to manage user permissions and access to not only Azure services but to other Microsoft SaaS offerings as well (Microsoft365, Intune, Dynamics365). |
 | Subscriptions | Effectively a separate payment agreement between the organization in question and Microsoft within their Azure tenant. You can have as many subscriptions as you want, they would logically separate your resources based on how you want to manage their costs. This would be a common high-level point where organisation resources would be segregated at. |
+| Identity / Principal |  Basically any entity that can authenticate to the platform and have permissions or access rights assigned to it. There are [User Principals](./users_groups) that represent actual users and [Service Principals](./service_principals) that represent applications and services. Through these identities in AAD, access to resources and services for both users and applications can be consistently managed across all resources leveraging AAD for IAM. |
 | Azure AD directory | Each tenant has a dedicated Azure AD directory. It is made up of all the identities associated to the organization (users, groups, and apps) and is used to perform identity and access management functions|
 |Azure Management group|A high-level abstraction of a group of several subscriptions. This is used to centralise management of access, policies and compliance related to several relevant subscriptions. All subscriptions in a management group inherit conditions assigned to the group.|
-## Identities
 
-An 'identity' or 'principal' is basically any entity that can authenticate to the platform and have permissions or access rights assigned to it. There are a number of identities in AAD which can broadly be broken into the following groups:
-- User principal
-- Service principal
-
-User principals, as the name suggests, represent actual users. Service principals, on the other hand, represent applications or services - more information on service principals can be found [here](./service_principals). Through these identities in AAD, access to resources and services for both users and applications can be consistently managed across all resources leveraging Azure AD for IAM. 
-
-User principals can exist in one of two states in Azure:
-- Cloud-only: These accounts exist only in Azure AD.
-- Directory Synced (Hybrid): These accounts are synchronised with an on-premise Active Directory domain.
-
-For detail on hybrid identities, check out the individual page [here](./hybrid_identities).
 
 
 ## AAD Roles and Assignment
