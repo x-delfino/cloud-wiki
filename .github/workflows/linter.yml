@@ -46,8 +46,9 @@ jobs:
       - name: Lint Markdown
         uses: github/super-linter/slim@v4
         env:
+          LINTER_RULES_PATH: '/'
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_MARKDOWN: true
-          MARKDOWN_CONFIG_FILE: '$PWD/.markdownlint.yaml'
+          MARKDOWN_CONFIG_FILE: '.markdownlint.yaml'
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
