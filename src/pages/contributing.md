@@ -125,9 +125,9 @@ import TabItem from '@theme/TabItem';
 ```
 
 Then we can build the tab object. A couple of things to bear in mind:
-- The `label` is the value that will appear as the tab name.
-- The blank line before and after the code block within the `TabItem` is required.
-- Don't indent your code block (the code block itself, you can indent code within the block as required).
+* The `label` is the value that will appear as the tab name.
+* The blank line before and after the code block within the `TabItem` is required.
+* Don't indent your code block (the code block itself, you can indent code within the block as required).
 
 ``````markdown
 <Tabs>
