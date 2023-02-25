@@ -48,6 +48,6 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_MARKDOWN: true
-          MARKDOWN_CONFIG_FILE: '/github/workspace/.markdownlint.yaml'
+          MARKDOWN_CONFIG_FILE: '$PWD/.markdownlint.yaml'
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
