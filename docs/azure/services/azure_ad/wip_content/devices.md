@@ -1,0 +1,9 @@
+# Devices
+
+### Device Management
+
+Organizations are likely to want to get corporate devices joined to the Azure AD tenant. Or they might need to join devices that are in an on-premises directory added to Azure AD. This is where you can have Hybrid Azure AD joined devices. Need to make a point that when you are combining an on-premises AD and Azure AD using hybrid joined devices you might be opening up yourself to a potential attack vector to target your on-premises organization from the cloud. Further details can be seen [in this useful article](https://posts.specterops.io/death-from-above-lateral-movement-from-azure-to-on-prem-ad-d18cb3959d4d) from SpecterOps on targeting Intune device management. Keep in mind that the lateral movement vector would require either **Global Administrator** or **Intune Administrator**.
+
+But from a general standpoint to minimise this, you should not allow any person to join their device to Azure AD directly. Usually this would be best done by configuring an Azure AD group that can join their devices to Azure AD and add users there as required. In addition, Azure AD provides users with the ability to set users that can elevate to local admin on Azure AD joined devices. Which, as you might suspect, could be a bit bad. All these settings can be found in the "Devices" -> "Device settings" blade in the Azure portal.
+
+Now this by itself is mostly useful for getting base information about devices added to your AAD. Getting the proper device management happens through Intune usually. The device management admin panel can be found here: endpoint.microsoft.com
