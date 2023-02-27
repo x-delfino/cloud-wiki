@@ -88,12 +88,16 @@ It is essential that these articles continue to serve their purpose of providing
 
 ### Examples
 
-Check the pages for [Azure MFA](/azure/services/azure_mfa) and [Azure AD](/azure/services/Azure_AD) for examples of "larger" articles.
+Check the pages for [Azure MFA](/azure/services/azure_ad/multi_factor_authentication) and [Azure AD](/azure/services/Azure_AD) for examples of "larger" articles.
 
 * The former is a great example of the maximum length, descriptiveness and informal style that could/should be present
 * The latter is a bit less descriptive and it's even more bullet-to-the-pointy, yet also conveying the idea of structure that we're aiming at
 
 For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](/aws/services/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.
+
+### Linting
+
+This repository uses linting to ensure consistency in formatting across content. Linting checks will be run on modified markdown files in pull requests and pushes to the main branch based on the rules defined [here](https://github.com/WithSecureLabs/cloud-wiki/blob/main/.markdownlint.yaml). Depending on the text editor that you're using to modify content, there are a few ways to integrate a linter into your authoring workflow. There are extensions such as [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for VS Code available, as well as CLI tools such as [markdownlint](https://github.com/markdownlint/markdownlint) that can be used to check your content for formatting issues before you submit them.
 
 ### Code Tabs Usage
 
@@ -116,7 +120,6 @@ Write-Host "Cloud Wiki"
   </TabItem>
 </Tabs>
 
-
 First you'll need to import the required components by placing this at the top of your markdown page:
 
 ```javascript
@@ -125,9 +128,10 @@ import TabItem from '@theme/TabItem';
 ```
 
 Then we can build the tab object. A couple of things to bear in mind:
-- The `label` is the value that will appear as the tab name.
-- The blank line before and after the code block within the `TabItem` is required.
-- Don't indent your code block (the code block itself, you can indent code within the block as required).
+
+* The `label` is the value that will appear as the tab name.
+* The blank line before and after the code block within the `TabItem` is required.
+* Don't indent your code block (the code block itself, you can indent code within the block as required).
 
 ``````markdown
 <Tabs>
@@ -148,4 +152,4 @@ Write-Host "Cloud Wiki"
 </Tabs>
 ``````
 
-For more examples, you can check the [Azure Storage](/azure/services/azure_storage) page.
+For more examples, you can check the [Azure Storage](/azure/services/storage) page.
