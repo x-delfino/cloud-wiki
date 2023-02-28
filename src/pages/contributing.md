@@ -1,9 +1,5 @@
 # Contributing
 
-import Link from '@docusaurus/Link';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Thank you for considering contributing to this knowledge base! We welcome all input from the community.  If you'd like to contribute but aren't sure where to start, pick an open issue from the GitHub repository on a topic you know something about and begin work there. Alternatively, if you see a page that needs improvement or want to add a new one all together then please go right ahead!
 
 The contribution process is as follows:
@@ -120,14 +116,7 @@ Write-Host "Cloud Wiki"
   </TabItem>
 </Tabs>
 
-First you'll need to import the required components by placing this at the top of your markdown page:
-
-```javascript
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-Then we can build the tab object. A couple of things to bear in mind:
+There are a couple of things to bear in mind when building your tab object:
 
 * The `label` is the value that will appear as the tab name.
 * The blank line before and after the code block within the `TabItem` is required.

@@ -1,8 +1,5 @@
 # Storage
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Overview
 
 When looking at storage of data in Azure, we have 3 main categories:
