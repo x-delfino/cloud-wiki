@@ -1,9 +1,6 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Guests & External Identities
 
-Now one thing to clarify off the bat is that, whilst they're often used iterchangeably, **Guests** and **External Identities** are not exactly synonymous terms.
+Now one thing to clarify off the bat is that, whilst they're often used interchangeably, **Guests** and **External Identities** are not exactly synonymous terms.
 - **Guests**: accounts with a `UserType` of `Guest` as opposed to `Member` which has an impact on their level of access to resources (we'll go into this later). 
 - **External Identities**: accounts that are homed in an external identity provider such as a user from an external AAD Tenant or with a Microsoft account. 
 
@@ -129,7 +126,7 @@ GET https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 There are a couple of types of external identity access in AAD:
 - **B2B Collaboration:** This is the most common form of external access. External collaborators are added as guests to the local AAD tenant to access resources. This means that they can be added to groups and assigned roles etc.
-- **B2B Direct Connect:** This method requires a trust relationship be established with an external AAD organisation. External collaborators are **not** added to the local AAD tenant but are instead managed in the external tenant. Trust controls can determine whether MFA, device compliance and hybrid join status from the external tenant are trusted by conditonal access policies.
+- **B2B Direct Connect:** This method requires a trust relationship be established with an external AAD organisation. External collaborators are **not** added to the local AAD tenant but are instead managed in the external tenant. Trust controls can determine whether MFA, device compliance and hybrid join status from the external tenant are trusted by conditional access policies.
 
 There's a full breakdown of use-case differences [here](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets). In practicality, Direct Connect only has particular benefits in shared Teams channels at the moment and doesn't support the user management functionality of Collaboration.
 

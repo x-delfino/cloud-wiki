@@ -1,22 +1,22 @@
 # Service Principals
 
 Service principals are AAD identities that represent applications and services leveraging AAD and Azure resources. There are actually three different types of service principals:
-- Application Registration: this identity is the *local* representation of an application which can be used to manage access to an application as well as manage the access that the application has.
+- Enterprise Application: this identity is the *local* representation of an application which can be used to manage access to an application as well as manage the access that the application has.
 - Managed Identity: these identities allow Azure resources to authenticate with AAD without requiring management of authentication material.
 - Legacy: these are a legacy form or service principals that (hopefully) aren't in use much nowadays.
 
-We'll take a look into Application Registrations and Managed Identities below.
+We'll take a look into Enterprise Applications and Managed Identities below.
 
-## Application Registrations
+## Enterprise Applications
 
 As noted above, these are the *local* representation of an application. But what do we actually mean by this? 
 
 Well if we think about an application in Azure AD, we've got those that are internally developed by an organisation, but also those that are available as multi-tenant applications from a third party. Think any SaaS service that you may want to integrate with AAD. These applications are represented by objects in both the **home** (application publisher) tenant and the **local** (application consumer) tenant:
 
 - **Home tenant**: An **application object** representing the application which will be managed by the application publisher. This represents the resources that the application may need to access, the supported authentication mechanisms and allows for management of access to the APIs exposed by the application.
-- **Local tenant**: A **service principal** (application registration) representing the application created in order to manage application access and permissions. This is created with properties derived from the application object.
+- **Local tenant**: A **service principal** (Enterprise Application) representing the application created in order to manage application access and permissions. This is created with properties derived from the application object.
 
-For internally developed applications, the home tenant and local tenant are one and the same and so both the application object and the application registration exist within the same tenant.
+For internally developed applications, the home tenant and local tenant are one and the same and so both the application object and the Enterprise Application exist within the same tenant.
 
 ## Managed Identities
 
@@ -69,7 +69,7 @@ $tokenArgs = @{
 $accessToken = (Invoke-RestMethod @tokenArgs).access_token
 ```
 The services that can leverage this method are as follows:
-- App Service
+- App Service (including Function Apps)
 - Automation
 - Container Apps
 
